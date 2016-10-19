@@ -1,0 +1,78 @@
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+$screen-s:                  480px !default;
+$screen-s-min:              ($screen-s - 1) !default;
+
+// Small screen / tablet
+$screen-sm:                 768px !default;
+$screen-sm-min:             ($screen-sm - 1) !default;
+
+// Medium screen / desktop
+$screen-m:                  1024px !default;
+$screen-m-min:              ($screen-m - 1) !default;
+
+// Large screen / Macbook Pro 15"
+$screen-l:                  1200px !default;
+$screen-l-min:              ($screen-l - 1) !default;
+
+// Macbook pro 15" / Wide Screen
+$screen-lg:                 1440px !default;
+$screen-lg-min:             ($screen-lg - 1) !default;
+
+
+//== Color Variables
+//
+//## Define the color code.
+$c-white: #ffffff;
+$c-black: #000000;
+$c-black-shadow: rgba(0, 0, 0, 0.1);
+$c-green: #80C414;
+$c-error: #CC3C3C;
+$dove-gray: #666;
+$gray-chateau: #999999;
+$hint-white: #F9F9F9;
+$mercury: #DDDDDD;
+$white-mercury: #eee;
+$pumice: #AAA;
+$ion: #CCCCCC;
+$thunder: #444;
+$mountain-mist: #888;
+$alabaster: #FCFCFC;
+$mine-shaft: #333;
+$chillian-fire: #F87000;
+$white-lilac: #E5E5E5;
+$limerick: #71AC12;
+$fire-engine-red: #D52727;
+$concrete: #F2F2F2;
+$seashell: #F1F1F1;
+$lyly-white: #EBEBEB;
+
+
+//
+//## Define the color social icons.
+$twitter: #55acee;
+$facebook: #3b5998;
+$googlePlus: #dd4b39;
+$instagram: #125688;
+$linkedin: #007bb5;
+$youtube: #bb0000;
+$rss: #ff6600;
+$pinterest: #cb2027;
+$yelp: #af0606;
+$skype: #00aff0;
+
+$socialMedias: (
+  social-twitter:     $twitter,
+  social-facebook:    $facebook,
+  social-google-plus: $googlePlus,
+  social-instagram:   $instagram,
+  social-linkedin:    $linkedin,
+  social-youtube:     $youtube,
+  social-rss-feed:    $rss,
+  social-pinterest:   $pinterest,
+  social-yelp:        $yelp,
+  social-skype:       $skype
+) !default;
