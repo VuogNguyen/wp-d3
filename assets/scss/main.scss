@@ -1,0 +1,22 @@
+/* 
+ * PROJECT STYLE
+ * IMPORT ALL SCSS FILES HERE
+ */
+
+// Import base scss
+@import "base/variables";
+@import "base/mixin";
+@import "base/utilities";
+@import "base/reset";
+@import "base/background";
+@import "base/position";
+@import "base/visual-effects";
+@import "base/grid";
+@import "base/font";
+@import "base/typography";
+
+// Import scss here
+@import "header";
+@import "home";
+@import "page";
+@import "footer";

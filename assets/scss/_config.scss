@@ -1,0 +1,27 @@
+/* 
+ * THEME META DATA
+ * CHANGE THEME META DATA HERE
+ * DO NOT REMOVE THIS FILE!
+ */
+
+@function config($map, $key) {
+  @return map-get($map, $key);
+}
+
+@function metadata($request) {
+  @return config($_metadata, $request);
+}
+
+$_metadata: (
+  theme-name:               "Theme Name",
+  theme-uri:                "http://theme-name.com",
+  theme-author:             "Author Name",
+  theme-author-uri:         "http://lamaple.com",
+  theme-description:        "A Theme By Lamaple",
+  theme-version:            "0.1.0",
+  theme-license:            "GPLv3",
+  theme-license-uri:        "http://lamaple.com",
+  theme-tags:               (light, responsive-layout, starter-theme),
+  theme-text-domain:        "Theme Text Domain",
+  theme-text-domain-path:   "/languages/"
+);
