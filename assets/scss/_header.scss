@@ -1,2 +1,6 @@
 header {
+  .ic-bell {
+    @include sprite($ic-bell);
+    display: inline-block;
+  }
 }
