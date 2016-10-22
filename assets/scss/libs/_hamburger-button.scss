@@ -1,0 +1,47 @@
+.ham-menu {
+  cursor: pointer;
+  margin: 0 auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.ham-menu-global {
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  border-top: 2px solid $c-white;
+  border-radius: 0;
+  width: 100%;
+  transition: 0.55s;
+}
+
+.ham-menu-top {
+  top: 0;
+}
+
+.ham-menu-middle {
+  top: 6px;
+}
+
+.ham-menu-bottom {
+  top: 12px;
+}
+
+.ham-menu-top-click {
+  backface-visibility: hidden;
+  top: 8px;
+  transform: rotate(45deg);
+  transition: 0.55s 0.5s;
+}
+
+.ham-menu-middle-click {
+  opacity: 0;
+}
+
+.ham-menu-bottom-click {
+  backface-visibility: hidden;
+  top: 8px;
+  transform: rotate(-45deg);
+  transition: 0.55s 0.5s;
+}
