@@ -6,13 +6,17 @@ var $				= require('gulp-load-plugins')({	// load gulp plugins
 						replaceString: /\bgulp[\-.]/
 					});
 var autoprefixer	= require('autoprefixer');			// load autoprefixer
-var del				= require('del');					// load del plugin
+var imagemin 			= require('gulp-imagemin');
+var merge 				= require('merge-stream');
+var spritesmith 	= require('gulp.spritesmith');
+var buffer    		= require('vinyl-buffer');
+var del						= require('del');					// load del plugin
 var browserSync		= require('browser-sync');
-var reload			= browserSync.reload;
+var reload				= browserSync.reload;
 
 // Browserify tasks
 var browserify = require('gulp-browserify');
-var uglify = require('gulp-uglify');
+var uglify 		 = require('gulp-uglify');
 
 gulp.task('browserify', function() {
   return gulp.src('assets/scripts/main.js')
@@ -31,7 +35,32 @@ gulp.task('fontTask', function(){
 // Image task
 gulp.task('imageTask', function(){
 	return gulp.src(config.IMAGE_DIR + '/**/*.+(png|jpg|jpeg|gif|svg)')
+  .pipe(buffer())
+  .pipe(imagemin())
 	.pipe(gulp.dest('../' + config.THEME_NAME + '/' + config.IMAGE_DIR));
+});
+
+gulp.task('sprite', function () {
+  // Generate our spritesheet
+  var spriteData = gulp.src(config.IMAGE_DIR + '/sprites/*.+(png|jpg|jpeg|gif|svg)').pipe(spritesmith({
+    imgName: 'sprites.png',
+    cssName: '_sprites.scss',
+    imgPath: '../images/sprites.png'
+  }));
+
+  // Pipe image stream through image optimizer and onto disk
+  var imgStream = spriteData.img
+    // DEV: We must buffer our stream into a Buffer for `imagemin`
+    .pipe(buffer())
+    .pipe(imagemin())
+    .pipe(gulp.dest('../' + config.THEME_NAME + '/' + config.IMAGE_DIR));
+
+  // Pipe CSS stream through CSS optimizer and onto disk
+  var scssStream = spriteData.css
+    .pipe(gulp.dest(config.CSS_DIR));
+
+  // Return a merged stream to handle both `end` events
+  return merge(imgStream, scssStream);
 });
 
 // JS task - vendor
@@ -104,7 +133,7 @@ gulp.task('clean', function(){
 });
 
 // Build task
-gulp.task('build', ['theme-style', 'fontTask', 'imageTask', 'vendorjs', 'vendorcss', 'projectjs', 'projectcss', 'phpTask']);
+gulp.task('build', ['theme-style', 'fontTask', 'imageTask', 'sprite', 'vendorjs', 'vendorcss', 'projectjs', 'projectcss', 'phpTask']);
 
 // Browser sync
 gulp.task('browser-sync', ['build'], function(){
@@ -123,6 +152,7 @@ gulp.task('watch', ['browser-sync'], function(){
 	gulp.watch(config.CSS_DIR + '/**/*.scss', ['vendorcss', 'projectcss', 'theme-style']);
 	gulp.watch(config.FONT_DIR + '/*.*', ['fontTask']);
 	gulp.watch(config.IMAGE_DIR + '/*.*', ['imageTask']);
+	gulp.watch(config.IMAGE_DIR + '/icons/*.*', ['sprite']);
 	gulp.watch('**/*.php', ['phpTask']);
 	gulp.watch('../' + config.THEME_NAME + '/**/*').on('change', function (file){
 		$.livereload.changed(file.path);

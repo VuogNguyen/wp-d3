@@ -18,5 +18,7 @@
 
 <body <?php do_action( 'add_body_data' ); ?>>
 <div class="wrapper">
-    <header">
+    <header>
+        <h1>Hello World</h1>
+        <div><span class="ic-bell"></span></div>
     </header>
