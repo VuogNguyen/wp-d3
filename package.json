@@ -36,7 +36,11 @@
     "gulp-uglify": "^1.5.3",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
-    "main-bower-files": "^2.11.1"
+    "main-bower-files": "^2.11.1",
+    "gulp.spritesmith": "^6.2.1",
+    "gulp-imagemin": "^3.0.3",
+    "merge-stream": "^1.0.0",
+    "vinyl-buffer": "^1.0.0"
   },
   "browserify-shim": {
     "jquery": "$"
