@@ -9,6 +9,7 @@
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -17,8 +18,4 @@
 </head>
 
 <body <?php do_action( 'add_body_data' ); ?>>
-<div class="wrapper">
-    <header>
-        <h1>Hello World</h1>
-        <div><span class="ic-bell"></span></div>
-    </header>
+    <div class="wrapper">
