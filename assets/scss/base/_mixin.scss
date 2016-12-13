@@ -100,6 +100,24 @@ $placeholders: ();
 	border-bottom-color: $color !important;
 }
 
+@mixin border($width, $color, $style) {
+  border-width: $width;
+  border-color: $color;
+  border-style: $style;
+}
+
+@mixin border-top($width, $color, $style) {
+  border-top-width: $width;
+  border-top-color: $color;
+  border-top-style: $style;
+}
+
+@mixin border-bottom($width, $color, $style) {
+  border-bottom-width: $width;
+  border-bottom-color: $color;
+  border-bottom-style: $style;
+}
+
 @mixin optional-at-root($sel) {
   @at-root #{if(not &, $sel, selector-append(&, $sel))} {
     @content;

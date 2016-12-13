@@ -1,12 +1,10 @@
 h1, h2, h3, h4, h5, h6, a, p, li, span, b, i, strong, label, input, th, td, select {
-  font-family: 'Gotham';
+  font-family: 'Proxima Nova';
   margin: 0;
 }
 
 h3 {
   font-size: 18px;
-  font-weight: 500;
-  color: $dove-gray;
   line-height: 1;
 }
 
@@ -18,16 +16,12 @@ a {
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
-  color: $gray-chateau;
-  &:hover {
-    color: $dove-gray;
-  }
-}
-
-.text-bold {
-  font-weight: 500 !important;
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
