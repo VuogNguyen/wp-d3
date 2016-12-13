@@ -127,14 +127,16 @@ module.exports = {
 
 
     if ($(window).width() < 640) {
-      resized();
+      resizedBarChart();
     }
+
     d3.select(window).on("resize", function () {
       if ($(window).width() < 640) {
-        resized();
+        resizedBarChart();
       }
     });
-    function resized() {
+
+    function resizedBarChart() {
       // New margin
       var margin = {top: 0, right: 50, left: 150};
       // Get the width of the window
