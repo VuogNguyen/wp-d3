@@ -1,0 +1,18 @@
+#Diagram {
+  .col {
+    .heading {
+      padding-bottom: 10px;
+      h3 {color: $c-boulder;}
+    }
+    .content {
+      p.text {
+        padding: 5px 0;
+      }
+      .text {
+        &--with-border-bottom {
+          @include border-bottom(1px, #ccc, dotted);
+        }
+      }
+    }
+  }
+}
