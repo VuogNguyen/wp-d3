@@ -1,11 +1,11 @@
-var THEME_NAME 	= 'Theme-Name',
+var THEME_NAME 	= 'Jasper',
 	FONT_DIR	= 'assets/fonts',
 	IMAGE_DIR	= 'assets/images',
 	CSS_DIR		= 'assets/scss',
 	JS_DIR		= 'assets/scripts-production',
 	SRC_DIR		= 'assets/scripts',
 	BOWER_DIR	= 'bower_components/',
-	PROXY		  = 'theme-name.dev';
+	PROXY		  = 'jasper.dev';
 
 module.exports = {
 	THEME_NAME : THEME_NAME,
