@@ -7,12 +7,44 @@
     .content {
       p.text {
         padding: 5px 0;
+        font-weight: 500;
       }
       .text {
         &--with-border-bottom {
-          @include border-bottom(1px, #ccc, dotted);
+          @include border-bottom(1px, $ion, dotted);
         }
       }
+    }
+  }
+}
+
+.chart {
+  &--bar {
+    .main-bar {
+      fill: $c-turquoise;
+    }
+
+    .bg-bar {
+      fill: $white-lilac;
+    }
+
+    .bar-label {
+      font-family: 'Proxima-Nova', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      fill: $pumice;
+    }
+
+    .y.axis text {
+      font-family: 'Proxima-Nova', sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      text-anchor: end !important;
+      fill: $pumice;
+    }
+
+    .x.axis line, .y.axis line, .x.axis text, .domain {
+      display: none;
     }
   }
 }
