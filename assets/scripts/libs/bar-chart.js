@@ -124,5 +124,39 @@ module.exports = {
       .attr("x", width + 15)
       .attr("y", yLabels.rangeBand()/1.6 )
       .attr("class", "bar-label");
-  }
+
+
+    if ($(window).width() < 640) {
+      resized();
+    }
+    d3.select(window).on("resize", function () {
+      if ($(window).width() < 640) {
+        resized();
+      }
+    });
+    function resized() {
+      // New margin
+      var margin = {top: 0, right: 50, left: 150};
+      // Get the width of the window
+      var width = d3.select("#Diagram .js-bar-chart").node().clientWidth;
+      // Change the width of the svg
+      d3.select("svg").attr("width", width);
+      // Change the xScale
+      xScale.range([0, width - margin.right - margin.left]);
+      // Update the bars
+      mainBar.attr("width", function(d) { return xScale(d.result); });
+      // Update the second bars
+      bgBar.attr("width", function(d) { return xScale(maxVal); });  
+      // Updates bar labels
+      barLabels
+        .attr("x", width - 190)
+        .attr("y", yLabels.rangeBand()/1.6 )
+      // Updates xAxis
+      xAxisGroup
+        .call(xAxis);
+       // Updates ticks
+      xAxis
+        .scale(xScale);
+    };
+  },
 };
