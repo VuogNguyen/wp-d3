@@ -4,7 +4,8 @@
       <div class="heading">
         <h3 class="text-uppercase">Result</h3>
       </div>
-      <div class="content"> 
+      <div class="content">
+        <div class="js-pie-chart chart chart--pie"></div>
       </div>
     </div>
 
@@ -13,12 +14,7 @@
         <h3 class="text-uppercase">Breakdown</h3>
       </div>
       <div class="content">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="js-bar-chart chart chart--bar"></div>
       </div>
     </div>
 
