@@ -1,14 +1,38 @@
 module.exports = {
-  init: function(data) {
+  init: function() {
     var self = this;
-    self.data = data;
-    self.drawBarChart();
+    self.loadChartData();
   },
 
-  drawBarChart: function () {
+  loadChartData: function () {
+    var self = this;
+    var data = {
+      'action': 'get_skills'
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: ajax_skill_post.ajaxurl,
+      data: data,
+      success: function( result ){
+        if (result.length === 0) {
+          console.log("Empty Posts");
+        } else {
+          if( $('#Diagram .js-bar-chart').length ) {
+            self.drawBarChart(result);
+          } 
+        }
+      },
+      error: function( jqXHR, textStatus, errorThrown ) {
+        console.log(jqXHR);
+      }
+    }); 
+  },
+
+  drawBarChart: function (data) {
     var self = this;
     //Local data
-    var data = self.data;
+    var data = data;
 
     var margin = {top: 0, right: 50, left: 150};
     var maxVal = 100;
