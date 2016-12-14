@@ -14,7 +14,7 @@
         <h3 class="text-uppercase">Breakdown</h3>
       </div>
       <div class="content">
-        <div class="js-bar-chart chart chart--bar"></div>
+        <?php echo do_shortcode('[barchart]'); ?>
       </div>
     </div>
 
@@ -43,4 +43,5 @@
           <a class="js-skill-form-submit">Submit</a>
       </div>
   </div>
+
 <?php get_footer(); ?>

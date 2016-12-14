@@ -57,6 +57,10 @@ function get_image_featured_url( $id, $size = 'full' ) {
   return wp_get_attachment_image_src( get_post_thumbnail_id( $id ), $size )[0];
 }
 
+/**
+* Get skill list CPT by wp_ajax
+*/
+
 function wp_ajax_get_skills() {
   $return = array();
 
@@ -101,4 +105,13 @@ function wp_ajax_update_skills() {
 
 add_action( 'wp_ajax_nopriv_update_skills', 'wp_ajax_update_skills' );
 add_action( 'wp_ajax_update_skills', 'wp_ajax_update_skills' );
+
+/**
+* Shortcode for Bar Chart
+*/
+function barchart_embedded() {
+  $out = '<div class="js-bar-chart chart chart--bar"></div>';
+  return $out;
+}
+add_shortcode('barchart', 'barchart_embedded');
 ?>

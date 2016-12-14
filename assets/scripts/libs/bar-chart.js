@@ -18,9 +18,9 @@ module.exports = {
         if (result.length === 0) {
           console.log("Empty Posts");
         } else {
-          if( $('#Diagram .js-bar-chart').length ) {
+          if( $('.js-bar-chart').length ) {
             self.drawBarChart(result);
-          } 
+          }
         }
       },
       error: function( jqXHR, textStatus, errorThrown ) {
@@ -46,7 +46,7 @@ module.exports = {
       dataSkills.push( data[i].skill );
 
     //Appends the svg to the chart-container div
-    var svg = d3.select("#Diagram .js-bar-chart").append("svg")
+    var svg = d3.select(".js-bar-chart").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top)
       .append("g")
@@ -158,7 +158,7 @@ module.exports = {
       // New margin
       var margin = {top: 0, right: 50, left: 150};
       // Get the width of the window
-      var width = d3.select("#Diagram .js-bar-chart").node().clientWidth;
+      var width = d3.select(".js-bar-chart").node().clientWidth;
       // Change the width of the svg
       d3.select("svg").attr("width", width);
       // Change the xScale
@@ -181,6 +181,6 @@ module.exports = {
   },
 
   removeBarChart: function () {
-    $("#Diagram .js-bar-chart svg").remove();
+    $(".js-bar-chart svg").remove();
   }
 };
