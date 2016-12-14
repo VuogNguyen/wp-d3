@@ -1,15 +1,33 @@
 <?php get_header(); ?>
   <section id="Diagram">
-    <div class="col">
+    <div class="col col--result">
       <div class="heading">
         <h3 class="text-uppercase">Result</h3>
       </div>
       <div class="content">
-        <?php echo do_shortcode('[piechart]'); ?>
+        <div class="part">
+          <?php echo do_shortcode('[piechart]'); ?>
+        </div>
+        <div class="part">
+          <table>
+            <tr>
+              <td><h4 class="text-uppercase">Status:</h4></td>
+              <td><p class="status text-uppercase">Fail</p></td>
+              <td><a class="js-active-modal">Change</a></td>
+            </tr>
+            <tr>
+              <td><h4 class="text-uppercase">Time:</h4></td>
+              <td colspan="2" class="timestamp-col">
+                <p class="timestamp">2h 2min</p>
+                <p>(of max 1h 50min)</p>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
 
-    <div class="col">
+    <div class="col col--breakdown">
       <div class="heading">
         <h3 class="text-uppercase">Breakdown</h3>
       </div>
@@ -18,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col col--history">
       <div class="heading">
         <h3 class="text-uppercase">History</h3>
       </div>
@@ -29,10 +47,7 @@
           <li><p class="text">Candidate completed the test on Aug 15</p></li>
         </ul>
       </div>
-    </div>
-
-
-    <a class="js-active-modal" href="#">Change</a>
+    </div>    
   </section>
 
   <div class="modal-dialog">

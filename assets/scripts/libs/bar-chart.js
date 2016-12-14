@@ -36,7 +36,7 @@ module.exports = {
 
     var margin = {top: 0, right: 50, left: 150};
     var maxVal = 100;
-    var widther = window.outerWidth / 3;
+    var widther = d3.select(".js-bar-chart").node().clientWidth;
     var width = widther - margin.left - margin.right,
         height = 150 - margin.top;
 
@@ -144,12 +144,12 @@ module.exports = {
       .attr("class", "bar-label");
 
 
-    if ($(window).width() < 640) {
+    if ($(window).width() > 768 && $(window).width() < 940) {
       resizedBarChart();
     }
 
     d3.select(window).on("resize", function () {
-      if ($(window).width() < 640) {
+      if ($(window).width() < 940) {
         resizedBarChart();
       }
     });
@@ -160,7 +160,7 @@ module.exports = {
       // Get the width of the window
       var width = d3.select(".js-bar-chart").node().clientWidth;
       // Change the width of the svg
-      d3.select("svg").attr("width", width);
+      d3.select(".js-bar-chart svg").attr("width", width);
       // Change the xScale
       xScale.range([0, width - margin.right - margin.left]);
       // Update the bars
