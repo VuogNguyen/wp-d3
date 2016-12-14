@@ -1,4 +1,5 @@
 var barChart = require('../libs/bar-chart');
+var pieChart = require('../libs/pie-chart');
 var modal = require('../libs/modal');
 
 module.exports = {
@@ -26,6 +27,8 @@ module.exports = {
           modal.closePopup();
           barChart.removeBarChart();
           barChart.init();
+          pieChart.removePieChart();
+          pieChart.init();
         },
         error: function( jqXHR, textStatus, errorThrown ) {
           console.log(jqXHR);

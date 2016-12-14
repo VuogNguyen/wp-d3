@@ -22,6 +22,19 @@ module.exports = {
           if( $('.js-pie-chart').length ) {
             self.drawPieChart(data);
           }
+          if ($('.js-status').length !== 0) {
+            if (data.results[0] > 50) {
+              $('.js-status').text('Pass');
+              $('.js-status').removeClass('bg-pass');
+              $('.js-status').removeClass('bg-fail');
+              $('.js-status').addClass('bg-pass');
+            } else {
+              $('.js-status').text('Fail');
+              $('.js-status').removeClass('bg-pass');
+              $('.js-status').removeClass('bg-fail');
+              $('.js-status').addClass('bg-fail');
+            }
+          }
         }
       },
       error: function( jqXHR, textStatus, errorThrown ) {
@@ -70,5 +83,9 @@ module.exports = {
         .attr("class", "pie-label")
         .attr("fill",colors[0])
         .text(data.results[0] + "%");
+  },
+
+  removePieChart: function () {
+    $(".js-pie-chart svg").remove();
   }
 };

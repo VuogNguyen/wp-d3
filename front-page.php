@@ -12,7 +12,7 @@
           <table>
             <tr>
               <td><h4 class="text-uppercase">Status:</h4></td>
-              <td><p class="status text-uppercase">Fail</p></td>
+              <td><p class="js-status status text-uppercase"></p></td>
               <td><a class="js-active-modal">Change</a></td>
             </tr>
             <tr>
