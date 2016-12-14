@@ -120,7 +120,10 @@ function wp_ajax_update_skills() {
 
   if (isset($skillSet)) {
     foreach ($skillSet as $skillPost) {
-      update_field( 'result', (int)$skillPost["result"], $skillPost["id"] );
+      $result = (int)$skillPost["result"];
+      if ($result >= 0 && $result <= 100) {
+        update_field( 'result', $result, $skillPost["id"] );
+      }
     }
     $message = "Update Skills Successful";
     echo ($message);
