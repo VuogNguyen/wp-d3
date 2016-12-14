@@ -90,6 +90,8 @@ function wp_ajax_update_skills() {
     foreach ($skillSet as $skillPost) {
       update_field( 'result', (int)$skillPost["result"], $skillPost["id"] );
     }
+    $message = "Update Skills Successful";
+    echo ($message);
   } else {
     $message = "Empty Skills Set";
     echo ($message);

@@ -179,4 +179,8 @@ module.exports = {
         .scale(xScale);
     };
   },
+
+  removeBarChart: function () {
+    $("#Diagram .js-bar-chart svg").remove();
+  }
 };

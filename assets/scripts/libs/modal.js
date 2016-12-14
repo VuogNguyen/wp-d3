@@ -3,12 +3,13 @@ module.exports = {
     var self = this;
     self.$modalPress = $(".modal-dialog");
 
-    self.activePopup();
+    self.clickToActivePopup();
+    self.clickToClosePopup();
     self.closePopup();
     self.submitPopupForm();
   },
 
-  activePopup: function () {
+  clickToActivePopup: function () {
     var self = this;
     var data = {'action': 'get_skills'};
     $('.js-active-modal').on("click", function (e) {
@@ -34,12 +35,17 @@ module.exports = {
    }); 
   },
 
-  closePopup: function () {
+  clickToClosePopup: function () {
     var self = this;
     $(".modal-dialog, .modal-dialog .close").on("click", function (e) {
         if(e.target != this) return;
-        self.$modalPress.removeClass("modal-dialog-active");
+        self.closePopup();
     });
+  },
+
+  closePopup: function () {
+    var self = this;
+    self.$modalPress.removeClass("modal-dialog-active");
   },
 
   renderPopupForm: function(skillSet) {
@@ -53,32 +59,7 @@ module.exports = {
   },
 
   submitPopupForm: function () {
-    $('.js-skill-form-submit').on("click", function (e) {
-      var skillSet = [];
-      $('.skill-form input').each(function (idx) {
-        var id = $(this).attr('data-id');
-        var skill = $(this).attr('data-name');
-        var val = $(this).val();
-        skillSet.push({"skill": skill, "result": val, "id": id});
-      });
-
-      var data = {
-        'action': 'update_skills',
-        'skillSet': skillSet
-      };
-
-      $.ajax({
-        type: 'POST',
-        url: ajax_skill_post.ajaxurl,
-        data: data,
-        success: function( result ){
-          console.log(result);
-        },
-        error: function( jqXHR, textStatus, errorThrown ) {
-          console.log(jqXHR);
-        }
-      });
-      e.preventDefault();
-    });
+    var self = this;
+    
   }
 };
