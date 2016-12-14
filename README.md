@@ -2,6 +2,9 @@
 
 Version: 2.0.0
 
+## How it works:
+- http://recordit.co/ivvSZx7XKI
+
 ## Author:
 
 - Thanh Hoang
