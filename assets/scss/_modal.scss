@@ -1,0 +1,59 @@
+.modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -10;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.modal-dialog-active {
+  z-index: 1000 !important;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+.modal-dialog > .modal-content {
+    width: 85vw;
+    height: auto;
+    position: relative;
+    margin: 10% auto 0;
+    padding: 10px;
+    background-color: #fff;
+}
+.modal-dialog .modal-content a.close:before,
+.modal-dialog .modal-content a.close:after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    width: 25px;
+    top: -40px;
+    left: 100%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+}
+.modal-dialog .modal-content a.close:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);    
+}
+.modal-dialog .modal-content a.close:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);    
+}
+.modal-dialog .modal-image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

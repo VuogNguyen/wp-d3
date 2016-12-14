@@ -24,11 +24,24 @@
       </div>
       <div class="content">
         <ul>
-            <li><p class="text"><span class="text--with-border-bottom">Invitation email</span> on Aug 15</p></li>
-            <li><p class="text">Candidate started the test on Aug 15</p></li>
-            <li><p class="text">Candidate completed the test on Aug 15</p></li>
+          <li><p class="text"><span class="text--with-border-bottom">Invitation email</span> on Aug 15</p></li>
+          <li><p class="text">Candidate started the test on Aug 15</p></li>
+          <li><p class="text">Candidate completed the test on Aug 15</p></li>
         </ul>
       </div>
     </div>
+
+
+    <a class="js-active-modal" href="#">Change</a>
   </section>
+
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <a title="Close" class="close"></a>
+          <form>
+            <h2>test</h2>
+            <input type="" name=""/>
+          </form>
+      </div>
+  </div>
 <?php get_footer(); ?>

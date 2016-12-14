@@ -25,3 +25,15 @@ $.ajax({
     console.log(jqXHR);
   }
 });
+
+
+var $modalPress = $(".modal-dialog");
+var $modalImage = $(".modal-image");
+
+$('.js-active-modal').on("click", function (e) {
+  $modalPress.addClass("modal-dialog-active");
+})
+$(".modal-dialog, .modal-dialog .close").on("click", function (e) {
+    if(e.target != this) return;
+    $modalPress.removeClass("modal-dialog-active");
+});
