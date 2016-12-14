@@ -21,12 +21,13 @@
   visibility: visible;
 }
 .modal-dialog > .modal-content {
-    width: 85vw;
+    width: 250px;
     height: auto;
     position: relative;
     margin: 10% auto 0;
     padding: 10px;
     background-color: #fff;
+    border-radius: 3px;
 }
 .modal-dialog .modal-content a.close:before,
 .modal-dialog .modal-content a.close:after {
@@ -56,4 +57,36 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+
+// Skill Form
+.skill-form {
+    h3 {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: #7b7b7b;
+        text-transform: uppercase;
+    }
+    input {
+        border: 1px solid #bdbcbc;
+        padding: 2px 5px;
+        border-radius: 3px;
+        width: 50%;
+    }
+    & + a {
+        padding: 7px 7px 6px 6px;
+        background: #bbbbba;
+        font-weight: 600;
+        color: white;
+        border-radius: 3px;
+        margin-top: 15px;
+        display: inline-block;
+        cursor: pointer;
+        @include transition(ease 0.25s);
+        &:hover {
+            background: #949494;
+        }
+    }
 }
