@@ -38,9 +38,7 @@
   <div class="modal-dialog">
       <div class="modal-content">
           <a title="Close" class="close"></a>
-          <form>
-            <h2>test</h2>
-            <input type="" name=""/>
+          <form class="skill-form" action="">
           </form>
       </div>
   </div>

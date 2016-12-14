@@ -1,8 +1,8 @@
 var home = require('./pages/home');
 var barChart = require('./libs/bar-chart');
+var modal = require('./libs/modal');
 
 home.init();
-
 
 var data = {
   'action': 'get_skills'
@@ -26,14 +26,5 @@ $.ajax({
   }
 });
 
+modal.init();
 
-var $modalPress = $(".modal-dialog");
-var $modalImage = $(".modal-image");
-
-$('.js-active-modal').on("click", function (e) {
-  $modalPress.addClass("modal-dialog-active");
-})
-$(".modal-dialog, .modal-dialog .close").on("click", function (e) {
-    if(e.target != this) return;
-    $modalPress.removeClass("modal-dialog-active");
-});
