@@ -86,6 +86,34 @@ function wp_ajax_get_skills() {
 add_action( 'wp_ajax_nopriv_get_skills', 'wp_ajax_get_skills' );
 add_action( 'wp_ajax_get_skills', 'wp_ajax_get_skills' );
 
+function wp_ajax_get_avg_results() {
+  $total = 0;
+  $count = 0;
+
+  $args = array(
+    'post_type'         => 'skills',
+    'posts_per_page'    => -1
+  );
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ):
+    while ( $query->have_posts() ) : $query->the_post();
+      $total += get_field( 'result', get_the_id() );
+      $count += 1;
+    endwhile;
+    wp_reset_postdata();
+  endif;
+
+  $num = (int)number_format($total/$count);
+  $num2 = 100 - $num;
+  
+  $return = [$num, $num2];
+
+  wp_send_json($return);
+}
+
+add_action( 'wp_ajax_nopriv_get_avg_results', 'wp_ajax_get_avg_results' );
+add_action( 'wp_ajax_get_avg_results', 'wp_ajax_get_avg_results' );
  
 function wp_ajax_update_skills() {
   $skillSet = $_POST['skillSet'];
@@ -114,4 +142,12 @@ function barchart_embedded() {
   return $out;
 }
 add_shortcode('barchart', 'barchart_embedded');
+/**
+* Shortcode for Pie Chart
+*/
+function piechart_embedded() {
+  $out = '<div class="js-pie-chart chart chart--pie"></div>';
+  return $out;
+}
+add_shortcode('piechart', 'piechart_embedded');
 ?>

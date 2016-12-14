@@ -47,4 +47,10 @@
       display: none;
     }
   }
+  &--pie {
+    .pie-label, .top-label {
+      font-family: 'Proxima-Nova', sans-serif;
+      font-weight: bold;
+    }
+  }
 }

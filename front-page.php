@@ -5,7 +5,7 @@
         <h3 class="text-uppercase">Result</h3>
       </div>
       <div class="content">
-        <div class="js-pie-chart chart chart--pie"></div>
+        <?php echo do_shortcode('[piechart]'); ?>
       </div>
     </div>
 
