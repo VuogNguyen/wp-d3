@@ -38,7 +38,7 @@ module.exports = {
     var maxVal = 100;
     var widther = d3.select(".js-bar-chart").node().clientWidth;
     var width = widther - margin.left - margin.right,
-        height = 150 - margin.top;
+        height = 25*data.length - margin.top;
 
     // Collect data skills
     var dataSkills = [];
