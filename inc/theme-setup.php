@@ -61,4 +61,26 @@ function limit_text($text, $limit) {
   return $text;
 }
 
+// CUSTOM POST TYPES
+function custom_post_type()
+{
+    $skills_post_type = 'skills';
+    $skill_args = array(
+        'labels'    => array(
+        'name'          => __('Skills'),
+        'singular_name' => __('Skill')
+        ),
+        'hirerarchical'     => true,
+        'supports'          => array( 'title'),
+        'public'            => true,
+        'has_archive'       => true,
+        'menu_position'     => 5,
+        'rewrite'           => array( 'slug' => 'skills', 'with_front' => false )
+    );
+
+    register_post_type( $skills_post_type, $skill_args );
+}
+
+add_action( 'init', 'custom_post_type' );
+
 ?>
