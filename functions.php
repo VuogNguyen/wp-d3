@@ -68,9 +68,10 @@ function wp_ajax_get_skills() {
 
   if ( $query->have_posts() ):
     while ( $query->have_posts() ) : $query->the_post();
+      $id = get_the_id();
       $title  = get_the_title();
       $result = get_field( 'result', get_the_id() );
-      array_push( $return, array("skill"=>$title,"result"=>$result) );
+      array_push( $return, array("skill"=>$title,"result"=>$result,"id"=>$id) );
     endwhile;
     wp_reset_postdata();
   endif;
@@ -80,4 +81,22 @@ function wp_ajax_get_skills() {
 
 add_action( 'wp_ajax_nopriv_get_skills', 'wp_ajax_get_skills' );
 add_action( 'wp_ajax_get_skills', 'wp_ajax_get_skills' );
+
+ 
+function wp_ajax_update_skills() {
+  $skillSet = $_POST['skillSet'];
+
+  if (isset($skillSet)) {
+    foreach ($skillSet as $skillPost) {
+      update_field( 'result', (int)$skillPost["result"], $skillPost["id"] );
+    }
+  } else {
+    $message = "Empty Skills Set";
+    echo ($message);
+  }
+  die();
+}
+
+add_action( 'wp_ajax_nopriv_update_skills', 'wp_ajax_update_skills' );
+add_action( 'wp_ajax_update_skills', 'wp_ajax_update_skills' );
 ?>

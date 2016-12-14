@@ -40,6 +40,7 @@
           <a title="Close" class="close"></a>
           <form class="skill-form" action="">
           </form>
+          <a class="js-skill-form-submit">Submit</a>
       </div>
   </div>
 <?php get_footer(); ?>
