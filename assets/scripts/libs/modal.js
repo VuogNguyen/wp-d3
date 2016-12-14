@@ -21,7 +21,7 @@ module.exports = {
         if (result.length === 0) {
           console.log("Empty Posts");
         } else {
-          $html = self.renderPopupForm(result);
+          $html = self.renderPopupForm(result.reverse());
           var $targetForm = $('.skill-form');
           $targetForm.empty();
           $targetForm.append($html);
