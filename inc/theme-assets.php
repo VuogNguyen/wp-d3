@@ -14,6 +14,12 @@ function theme_enqueue_script() {
     $vendor_handle = $script_handle.'-vendor';
     wp_register_script($vendor_handle, THEME_URL.'/assets/scripts-production/vendor.js', array(), false, true);
     wp_enqueue_script($vendor_handle);
+
+    wp_localize_script( 
+        'wp-script-vendor', 
+        'ajax_skill_post', 
+        array('ajaxurl'   => admin_url('admin-ajax.php'))
+    );
   } else {
     var_dump('vendor file not exist!');
   }

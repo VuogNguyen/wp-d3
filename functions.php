@@ -56,4 +56,28 @@ function get_image( $image ) {
 function get_image_featured_url( $id, $size = 'full' ) {
   return wp_get_attachment_image_src( get_post_thumbnail_id( $id ), $size )[0];
 }
+
+function wp_ajax_get_skills() {
+  $return = array();
+
+  $args = array(
+    'post_type'         => 'skills',
+    'posts_per_page'    => -1
+  );
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ):
+    while ( $query->have_posts() ) : $query->the_post();
+      $title  = get_the_title();
+      $result = get_field( 'result', get_the_id() );
+      array_push( $return, array("skill"=>$title,"result"=>$result) );
+    endwhile;
+    wp_reset_postdata();
+  endif;
+
+  wp_send_json(array_reverse($return));
+}
+
+add_action( 'wp_ajax_nopriv_get_skills', 'wp_ajax_get_skills' );
+add_action( 'wp_ajax_get_skills', 'wp_ajax_get_skills' );
 ?>

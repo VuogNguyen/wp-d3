@@ -1,20 +1,14 @@
 module.exports = {
-  init: function() {
+  init: function(data) {
     var self = this;
+    self.data = data;
     self.drawBarChart();
   },
 
   drawBarChart: function () {
     var self = this;
     //Local data
-    var data = [
-      {"skill":"Numerical Reasoning","result":100},
-      {"skill":"WordPress","result":10},
-      {"skill":"JavaScript","result":20},
-      {"skill":"HTML/CSS","result":32},
-      {"skill":"PHP","result":40},
-      {"skill":"SQL","result":50}
-    ];
+    var data = self.data;
 
     var margin = {top: 0, right: 50, left: 150};
     var maxVal = 100;
